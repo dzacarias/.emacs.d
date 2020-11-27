@@ -1,0 +1,3 @@
+[submodule "vendor/auto-fix.el"]
+	path = vendor/auto-fix.el
+	url = https://github.com/tomoya/auto-fix.el.git
