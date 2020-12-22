@@ -32,12 +32,15 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(prelude-require-packages '(ivy swiper counsel))
+(prelude-require-packages '(ivy ivy-prescient swiper counsel))
 
 ;;; Ivy
+;;
 ;; ivy is a powerful alternative to the popular ido-mode
 
 (require 'ivy)
+(require 'counsel)
+(require 'ivy-prescient) ;; must be loaded after counsel
 (require 'diminish)
 
 (ivy-mode 1)
@@ -46,16 +49,19 @@
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 
+;; smarter filtering and sorting for ivy
+(ivy-prescient-mode 1)
+
 (diminish 'ivy-mode)
 
-(setq projectile-completion-system 'ivy)
-
 ;;; Swiper
+;;
 ;; swiper provides enhanced buffer search
 
 (global-set-key "\C-s" 'swiper)
 
 ;;; Counsel
+;;
 ;; counsel supercharges a lot of commands with some ivy magic
 
 (global-set-key (kbd "M-x") 'counsel-M-x)
